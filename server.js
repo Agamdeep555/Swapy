@@ -11,7 +11,6 @@ const authRoutes = require('./routes/authRoutes')
 const dns = require('dns')
 dns.setServers(["8.8.8.8", "1.1.1.1"])
 
-
 if (!process.env.MONGODB_URI) {
   console.error('MONGODB_URI missing in .env')
   process.exit(1)
@@ -43,5 +42,10 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ message: err.message || 'Server error' })
 })
 
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`))
+// Only listen locally — Vercel handles this itself in production
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000
+  app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`))
+}
+
+module.exports = app
