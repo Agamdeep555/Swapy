@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swapy — Find Your Room Swap Partner</title>
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
+<body class="auth-body">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">⇄</span>
+      <span class="logo-text">Swapy</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#auth-section" class="nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">🎓 Exclusively for Thapar University</div>
+      <h1 class="hero-title">Find your perfect <span class="highlight">room swap</span> partner instantly</h1>
+      <p class="hero-desc">Swapy connects Thapar hostel students looking to swap rooms. Post your details, discover matches, and connect directly on WhatsApp — no middleman, no hassle.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">100+</div>
+          <div class="hero-stat-label">Students listed</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">9</div>
+          <div class="hero-stat-label">Hostels covered</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">Free</div>
+          <div class="hero-stat-label">Always free</div>
+        </div>
+      </div>
+      <div class="hero-avatars">
+        <div class="avatar-stack">
+          <div class="mini-avatar" style="background: linear-gradient(135deg,#6366f1,#8b5cf6)">A</div>
+          <div class="mini-avatar" style="background: linear-gradient(135deg,#ec4899,#f43f5e)">R</div>
+          <div class="mini-avatar" style="background: linear-gradient(135deg,#10b981,#059669)">P</div>
+          <div class="mini-avatar" style="background: linear-gradient(135deg,#f59e0b,#d97706)">S</div>
+          <div class="mini-avatar" style="background: linear-gradient(135deg,#3b82f6,#2563eb)">K</div>
+        </div>
+        <span class="avatar-text">Join 100+ Thapar students already using Swapy</span>
+      </div>
+    </div>
+
+    <!-- AUTH CARD -->
+    <div class="hero-right" id="auth-section">
+      <div class="auth-card">
+        <div class="auth-logo">
+          <span class="logo-icon">⇄</span>
+          <span class="logo-text">Swapy</span>
+        </div>
+        <p class="auth-tagline">Only @thapar.edu emails allowed</p>
+
+        <div class="auth-tabs">
+          <button class="tab-btn active" id="tab-login">Login</button>
+          <button class="tab-btn" id="tab-register">Sign Up</button>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="auth-form" id="form-login">
+          <div class="form-group">
+            <label>Thapar email</label>
+            <input type="email" id="login-email" placeholder="yourname@thapar.edu" />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <div class="input-wrapper">
+              <input type="password" id="login-password" placeholder="Enter your password" />
+            </div>
+          </div>
+          <div id="login-error" class="form-error"></div>
+          <button class="btn-submit" id="btn-login">Login to Swapy →</button>
+          <p class="switch-text">Don't have an account? <a href="#" id="go-register">Sign up free</a></p>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="auth-form hidden" id="form-register">
+          <div class="form-group">
+            <label>Full name</label>
+            <input type="text" id="reg-name" placeholder="Aarav Sharma" />
+          </div>
+          <div class="form-group">
+            <label>Thapar email</label>
+            <input type="email" id="reg-email" placeholder="yourname@thapar.edu" />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="reg-password" placeholder="Min 6 characters" />
+          </div>
+          <div id="reg-error" class="form-error"></div>
+          <button class="btn-submit" id="btn-register">Create account →</button>
+          <p class="switch-text">Already have an account? <a href="#" id="go-login">Login</a></p>
+        </div>
+
+        <div class="auth-footer-note">
+          🔒 Your data is secure and only visible to Thapar students
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section" id="features">
+    <div class="section-header">
+      <div class="section-badge">✦ Features</div>
+      <h2>Everything you need to swap rooms</h2>
+      <p>Built specifically for Thapar hostel students. Simple, fast, and secure.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#ede9fe;color:#7c3aed">🔒</div>
+        <h3>Thapar-only access</h3>
+        <p>Only verified @thapar.edu email IDs can sign up. No outsiders, no spam — just your fellow hostelmates.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#dcfce7;color:#15803d">💬</div>
+        <h3>Direct WhatsApp contact</h3>
+        <p>Connect instantly with your swap partner directly on WhatsApp. No chat platforms to download, no waiting.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#e0e7ff;color:#3730a3">⚡</div>
+        <h3>Real-time updates</h3>
+        <p>The listing refreshes automatically every 30 seconds. See new entries without ever refreshing the page.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fef9c3;color:#a16207">🔍</div>
+        <h3>Smart search and filter</h3>
+        <p>Search by name or room number. Filter by hostel. Sort by newest, oldest, name, or room number.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fce7f3;color:#be185d">🛡️</div>
+        <h3>Secure and private</h3>
+        <p>JWT authentication, bcrypt password hashing, and rate limiting keep your account and data protected.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#ffedd5;color:#c2410c">🆓</div>
+        <h3>Completely free</h3>
+        <p>No subscription, no premium tier, no ads. Swapy is built by a student, for students — forever free.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how-it-works">
+    <div class="section-header">
+      <div class="section-badge">✦ How it works</div>
+      <h2>Swap your room in 3 simple steps</h2>
+      <p>No complicated process. Just sign up and start swapping.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h3>Sign up with Thapar email</h3>
+          <p>Create your account using your @thapar.edu email. Only takes 30 seconds. No approval needed.</p>
+        </div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h3>Post your room details</h3>
+          <p>Add your hostel, room number, contact number, and what kind of room you're looking for.</p>
+        </div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h3>Connect on WhatsApp</h3>
+          <p>Browse listings, find a match, and tap "Contact on WhatsApp" to start chatting directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOSTELS SECTION -->
+  <section class="hostels-section">
+    <div class="section-header">
+      <div class="section-badge">✦ Coverage</div>
+      <h2>All major Thapar hostels covered</h2>
+      <p>Students from every hostel can list and find swap partners.</p>
+    </div>
+    <div class="hostels-grid">
+      <div class="hostel-pill">🏢 Hostel A</div>
+      <div class="hostel-pill">🏢 Hostel B</div>
+      <div class="hostel-pill">🏢 Hostel C</div>
+      <div class="hostel-pill">🏢 Hostel D</div>
+      <div class="hostel-pill">🏢 Hostel H</div>
+      <div class="hostel-pill">🏢 Hostel J</div>
+      <div class="hostel-pill">🏢 Hostel M</div>
+      <div class="hostel-pill">🏢 Hostel O</div>
+      <div class="hostel-pill">🏢 + more</div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="cta-card">
+      <h2>Ready to find your swap partner?</h2>
+      <p>Join hundreds of Thapar students already using Swapy to swap hostel rooms.</p>
+      <a href="#auth-section" class="cta-btn">Get started for free →</a>
+    </div>
+  </section>
+
+  <!-- PAGE FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-logo">
+      <span class="logo-icon" style="font-size:14px;padding:5px 8px">⇄</span>
+      <span style="font-weight:700;font-size:15px">Swapy</span>
+    </div>
+    <p>Built with ❤️ for Thapar University hostel students · © 2026 Swapy</p>
+    <p style="margin-top:4px;font-size:11px;color:#9ca3af">Only @thapar.edu emails are allowed · Your data stays secure</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+
+  <script>
+    document.getElementById('go-register').addEventListener('click', (e) => {
+      e.preventDefault()
+      document.getElementById('tab-register').click()
+    })
+    document.getElementById('go-login').addEventListener('click', (e) => {
+      e.preventDefault()
+      document.getElementById('tab-login').click()
+    })
+  </script>
+</body>
+</html>

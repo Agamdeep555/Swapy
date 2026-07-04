@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swapy — Hostel Room Swap</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-icon">⇄</span>
+          <span class="logo-text">Swapy</span>
+        </div>
+        <p class="tagline">The modern way to find and connect with fellow hostel students looking to swap rooms. Post your details and discover swap partners instantly.</p>
+        <div class="stats">
+          <div class="stat-card">
+            <span class="stat-icon">👥</span>
+            <div>
+              <div class="stat-label">Students</div>
+              <div class="stat-number" id="stat-students">0</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">🏢</span>
+            <div>
+              <div class="stat-label">Rooms Listed</div>
+              <div class="stat-number" id="stat-rooms">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <span class="user-greeting">👋 <span id="user-info"></span></span>
+        <button class="btn-logout" id="btn-logout">Logout</button>
+      </div>
+    </div>
+    <div class="header-glow"></div>
+  </header>
+
+  <!-- SOCIAL PROOF / ACTIVITY FEED -->
+  <div class="activity-strip">
+    <div class="activity-header">
+      <span class="live-badge"><span class="live-dot"></span> LIVE</span>
+      <span class="activity-title">What's happening on Swapy</span>
+    </div>
+
+    <div class="activity-body">
+      <div class="activity-scroll" id="activity-scroll">
+        <div class="activity-item type-new">
+          <div class="activity-avatar">AS</div>
+          <div class="activity-content">
+            <span class="activity-text"><strong>Aarav S.</strong> posted a swap request in <strong>Hostel A</strong></span>
+            <span class="activity-time">2 min ago</span>
+          </div>
+        </div>
+        <div class="activity-item type-match">
+          <div class="activity-avatar match">⇄</div>
+          <div class="activity-content">
+            <span class="activity-text"><strong>Riya M.</strong> and <strong>Karan P.</strong> matched rooms</span>
+            <span class="activity-time">14 min ago</span>
+          </div>
+        </div>
+        <div class="activity-item type-new">
+          <div class="activity-avatar">SK</div>
+          <div class="activity-content">
+            <span class="activity-text"><strong>Sartaj K.</strong> posted a swap request in <strong>Hostel D</strong></span>
+            <span class="activity-time">31 min ago</span>
+          </div>
+        </div>
+        <div class="activity-item type-milestone">
+          <div class="activity-avatar milestone">🎉</div>
+          <div class="activity-content">
+            <span class="activity-text"><strong>3 swaps</strong> completed this week</span>
+            <span class="activity-time">Today</span>
+          </div>
+        </div>
+        <div class="activity-item type-new">
+          <div class="activity-avatar">PN</div>
+          <div class="activity-content">
+            <span class="activity-text"><strong>Pihu N.</strong> posted a swap request in <strong>Hostel M</strong></span>
+            <span class="activity-time">1 hr ago</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-summary">
+        <div class="summary-pill">
+          <span class="summary-icon">🔥</span>
+          <div>
+            <span class="summary-num" id="summary-week-swaps">3</span>
+            <span class="summary-label">This week</span>
+          </div>
+        </div>
+        <div class="summary-pill highlight">
+          <span class="summary-icon">🏆</span>
+          <div>
+            <span class="summary-num" id="summary-total-swaps">12</span>
+            <span class="summary-label">This semester</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <div class="search-wrap">
+      <input type="text" id="search" placeholder="Search by name or room number..." />
+    </div>
+    <select id="filter-hostel">
+      <option value="">All Hostels</option>
+      <option>Hostel A</option>
+      <option>Hostel B</option>
+      <option>Hostel C</option>
+      <option>Hostel D</option>
+      <option>Hostel H</option>
+      <option>Hostel J</option>
+      <option>Hostel M</option>
+      <option>Hostel O</option>
+    </select>
+    <select id="filter-sort">
+      <option value="newest">Newest First</option>
+      <option value="oldest">Oldest First</option>
+      <option value="name">Name (A→Z)</option>
+      <option value="room">Room Number</option>
+    </select>
+    <button class="btn-refresh" id="btn-refresh" title="Refresh">↻</button>
+    <button class="btn-add" id="btn-add">+ Add Your Details</button>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Room</th>
+          <th>Preferences</th>
+          <th>Contact</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="student-table-body">
+        <tr><td colspan="5" class="empty">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Swapy · Built with ❤️ for hostel students</span>
+    <span class="realtime-badge">Real-time sync active</span>
+  </footer>
+
+  <!-- MODAL OVERLAY -->
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">✦ Add Your Swap Details</div>
+        <div class="modal-subtitle">Share your info so others can reach you</div>
+      </div>
+      <button class="modal-close" id="btn-close">✕</button>
+    </div>
+
+    <div class="modal-warning">
+      ⚠️ Please enter legitimate and proper entries only. Spam or fake listings may be removed.
+    </div>
+
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" id="f-name" placeholder="e.g. Aarav Sharma" />
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Hostel</label>
+        <select id="f-hostel">
+          <option value="">Select Hostel</option>
+          <option>Hostel A</option>
+          <option>Hostel B</option>
+          <option>Hostel C</option>
+          <option>Hostel D</option>
+          <option>Hostel H</option>
+          <option>Hostel J</option>
+          <option>Hostel M</option>
+          <option>Hostel O</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Room Number</label>
+        <input type="text" id="f-room" placeholder="e.g. 104" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Description &amp; Swap Preferences</label>
+      <textarea id="f-desc" placeholder="e.g. I have a room with a balcony and want a room closer to the library..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Contact Number / WhatsApp</label>
+      <input type="text" id="f-phone" placeholder="e.g. 9876543210" maxlength="10" />
+      <small>10-digit mobile number (we automatically add +91 for WhatsApp)</small>
+    </div>
+    <div id="form-error" class="form-error"></div>
+    <button class="btn-submit" id="btn-submit">+ Submit Details</button>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/form.js"></script>
+  <script src="/js/realtime.js"></script>
+
+  <script>
+    document.getElementById('btn-add').addEventListener('click', openModal)
+    document.getElementById('btn-close').addEventListener('click', closeModal)
+    document.getElementById('btn-submit').addEventListener('click', submitForm)
+    document.getElementById('modal-overlay').addEventListener('click', closeModal)
+    document.getElementById('btn-refresh').addEventListener('click', () => {
+      loadStudents()
+      loadStats()
+    })
+  </script>
+
+</body>
+</html>
